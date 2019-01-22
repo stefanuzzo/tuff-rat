@@ -16,7 +16,7 @@ static unsigned char decreaseSpeed();
 
 static unsigned char speed = 0;
 
-int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR cmdLine, int cmdShow)
+int WINAPI _tWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR cmdLine, int cmdShow)
 {
 	WNDCLASSEX wc;
 	HWND hMain;
@@ -68,7 +68,7 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT uiMsg, WPARAM wParam, LPARAM lP
 		r.top = 20; r.left = 20; r.bottom = 60; r.right = 60;
 		addr.sin_family = AF_INET;
 		addr.sin_port = htons(5000);
-		InetPton(AF_INET, "192.168.4.1", &addr.sin_addr.s_addr);
+		InetPton(AF_INET, (LPCTSTR) "192.168.4.1", &addr.sin_addr.s_addr);
 		s = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);
 		return 0;
 
